@@ -53,10 +53,10 @@ form.addEventListener("submit", function (e) {
 function createTask(i) {
   // Creating new Task (li)
   let listItem = document.createElement("li");
-  listItem.classList = "task";
+  listItem.classList = "task col m-2";
   //   Creating the task content
   let pTask = document.createElement("p");
-  pTask.classList = "content";
+  pTask.classList = "content text-break";
   pTask.textContent = tasksArray[i].tContent;
   //   Creating the task date
   let pDate = document.createElement("p");
