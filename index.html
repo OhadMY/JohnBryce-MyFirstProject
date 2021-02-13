@@ -11,26 +11,30 @@
       integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
       integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container">
+    <form>
       <h1>My Task Board</h1>
-      <form>
-        <label>Task Content</label>
+      <span>
+        <label>Task Content : </label>
         <input type="text" id="taskcontent" />
-        <label>Deadline</label>
+      </span>
+      <span>
+        <label>Deadline : </label>
         <input type="date" id="date" />
         <input type="time" id="time" />
-        <button type="submit">Add Task</button>
-        <button type="reset">Reset Form</button>
-      </form>
+      </span>
+      <button type="submit">Add Task</button>
+      <button type="reset">Reset Form</button>
+    </form>
+    <div class="container">
       <ul
         id="tasks"
         class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1"

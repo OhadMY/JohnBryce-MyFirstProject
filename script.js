@@ -29,6 +29,7 @@ form.addEventListener("submit", function (e) {
     const tDate = taskDate.value;
     const tTime = taskTime.value;
     const tContent = taskContent.value;
+    let isNew = true;
 
     // Create element that has the task info
     const task = { tContent, tDate, tTime };
@@ -40,7 +41,7 @@ form.addEventListener("submit", function (e) {
     localStorage.setItem("tasksArray", JSON.stringify(tasksArray));
 
     // Create Tasks
-    createTask(tasksArray.length - 1);
+    createTask(tasksArray.length - 1, isNew);
 
     // Reset form
     taskContent.value = "";
@@ -50,14 +51,18 @@ form.addEventListener("submit", function (e) {
 });
 
 // Create task function
-function createTask(i) {
+function createTask(i, isNew) {
   // Creating new Task (li)
   let listItem = document.createElement("li");
   listItem.classList = "task col m-2";
+  if (isNew) listItem.style.opacity = 0;
   //   Creating the task content
   let pTask = document.createElement("p");
   pTask.classList = "content text-break";
   pTask.textContent = tasksArray[i].tContent;
+  // Create div for datetime
+  let datetime = document.createElement("div");
+  datetime.classList = "datetime";
   //   Creating the task date
   let pDate = document.createElement("p");
   pDate.classList = "date";
@@ -66,6 +71,7 @@ function createTask(i) {
   let pTime = document.createElement("p");
   pTime.classList = "time";
   pTime.textContent = tasksArray[i].tTime;
+
   //   Creatin X button
   let closeBtn = document.createElement("button");
   closeBtn.className = "closeBtn";
@@ -76,9 +82,12 @@ function createTask(i) {
   //   Setting everything together
   tasksList.appendChild(listItem);
   listItem.appendChild(pTask);
-  listItem.appendChild(pDate);
-  listItem.appendChild(pTime);
+  listItem.appendChild(datetime);
+  datetime.appendChild(pDate);
+  datetime.appendChild(pTime);
   listItem.appendChild(closeBtn);
+  window.getComputedStyle(listItem).opacity;
+  listItem.style.opacity = 1;
 }
 
 // get tasks and set to html
