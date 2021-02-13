@@ -17,6 +17,9 @@ window.addEventListener("load", function () {
     tasksArray = localStorageTasks;
     setTasksToHTML();
   }
+  // Sets min date to current date
+  const date = minDate();
+  taskDate.setAttribute("min", date);
 });
 
 // Send form
@@ -30,6 +33,9 @@ form.addEventListener("submit", function (e) {
     const tTime = taskTime.value;
     const tContent = taskContent.value;
     let isNew = true;
+
+    // Sets the min time to current time
+    if (minDate() === tDate) minTime();
 
     // Create element that has the task info
     const task = { tContent, tDate, tTime };
@@ -55,6 +61,7 @@ function createTask(i, isNew) {
   // Creating new Task (li)
   let listItem = document.createElement("li");
   listItem.classList = "task col m-2";
+  // Checks if task is new and set the opacity for new task
   if (isNew) listItem.style.opacity = 0;
   //   Creating the task content
   let pTask = document.createElement("p");
@@ -86,11 +93,13 @@ function createTask(i, isNew) {
   datetime.appendChild(pDate);
   datetime.appendChild(pTime);
   listItem.appendChild(closeBtn);
+  // Get the specific style that wanna be changed, applies style from line 59
   window.getComputedStyle(listItem).opacity;
+  // Actually changes the opacity for new task based on the selection from line 91 (mandatory in order for the transition to work)
   listItem.style.opacity = 1;
 }
 
-// get tasks and set to html
+// Get tasks and set to html
 function setTasksToHTML() {
   tasksList.innerHTML = "";
   for (let i = 0; i < tasksArray.length; i++) {
@@ -103,4 +112,30 @@ function deleteTask(i) {
   tasksArray.splice(i, 1);
   setTasksToHTML();
   localStorage.setItem("tasksArray", JSON.stringify(tasksArray));
+}
+
+// Sets min date input
+function minDate() {
+  let now = new Date();
+  let y = now.getFullYear();
+  let m = now.getMonth() + 1;
+  let d = now.getDate();
+  if (m < 10) m = "0" + m;
+  if (d < 10) d = "0" + d;
+  let minDate = y + "-" + m + "-" + d;
+
+  return minDate;
+}
+
+// Sets min time input
+function minTime() {
+  let now = new Date();
+  let h = now.getHours();
+  let m = now.getMinutes();
+
+  if (h < 10) h = "0" + h;
+  if (m < 10) m = "0" + m;
+  let minTime = h + ":" + m;
+  console.log(minTime);
+  taskTime.setAttribute("min", minTime);
 }
