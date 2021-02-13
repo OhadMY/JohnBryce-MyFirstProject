@@ -18,8 +18,7 @@ window.addEventListener("load", function () {
     setTasksToHTML();
   }
   // Sets min date to current date
-  const date = minDate();
-  taskDate.setAttribute("min", date);
+  taskDate.setAttribute("min", minDate());
 });
 
 // Send form
@@ -33,9 +32,6 @@ form.addEventListener("submit", function (e) {
     const tTime = taskTime.value;
     const tContent = taskContent.value;
     let isNew = true;
-
-    // Sets the min time to current time
-    if (minDate() === tDate) minTime();
 
     // Create element that has the task info
     const task = { tContent, tDate, tTime };
@@ -125,17 +121,4 @@ function minDate() {
   let minDate = y + "-" + m + "-" + d;
 
   return minDate;
-}
-
-// Sets min time input
-function minTime() {
-  let now = new Date();
-  let h = now.getHours();
-  let m = now.getMinutes();
-
-  if (h < 10) h = "0" + h;
-  if (m < 10) m = "0" + m;
-  let minTime = h + ":" + m;
-  console.log(minTime);
-  taskTime.setAttribute("min", minTime);
 }
