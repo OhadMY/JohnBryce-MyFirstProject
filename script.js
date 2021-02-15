@@ -25,6 +25,7 @@ window.addEventListener("load", function () {
 form.addEventListener("submit", function (e) {
   // Disable form refresh
   e.preventDefault();
+
   //   Checks if inputs are empty or not
   if (taskContent.value.trim() && taskTime.value && taskDate.value) {
     //   converting the inputs values into variables
@@ -49,7 +50,7 @@ form.addEventListener("submit", function (e) {
     taskContent.value = "";
     taskTime.value = "";
     taskDate.value = "";
-  }
+  } else alert("Please write something for task content");
 });
 
 // Create task function
