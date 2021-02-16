@@ -28,17 +28,35 @@ body {
 form {
   text-align: center;
   background-color: rgba(255, 255, 255, 0.85);
-  height: 100px;
+  padding-bottom: 10px;
 
-  span {
+  .test {
+    max-width: 1196px;
     font-weight: bold;
     border: none;
     outline: none;
     background-color: rgba(25, 98, 179, 0.9);
     border-radius: 20px;
-    padding: 7px 0 7px 7px;
-    margin: 10px;
+    padding: 7px;
+    margin: 5px auto;
     color: white;
+  }
+
+  #taskcontent {
+    width: 100%;
+    height: 50px;
+  }
+
+  .bot {
+    max-width: 1196px;
+    margin: 0 auto;
+  }
+
+  #deadline {
+    width: 500px;
+    #date {
+      margin-right: 40px;
+    }
   }
 
   button {
@@ -49,6 +67,7 @@ form {
     background-color: rgba(25, 98, 179, 0.9);
     color: white;
     padding: 3px 12px;
+    margin-right: 10px;
   }
 }
 
@@ -59,6 +78,7 @@ ul {
 
 .task:hover {
   transform: scale(1.05);
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.17);
 
   .closeBtn {
     opacity: 1;
@@ -70,14 +90,12 @@ ul {
   position: relative;
   background-color: rgb(28, 98, 179);
   // background-color: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.13);
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.17);
   width: 270px;
   height: 225px;
   display: flex;
   flex-direction: column;
   transition: all 0.2s ease-in-out;
-  // background-image: url("test.png");
-  // background-size: cover;
 }
 
 .content {
@@ -136,7 +154,7 @@ input {
 
 h1 {
   color: rgb(25, 98, 179);
-  margin-bottom: 16px;
+  padding-top: 10px;
   font-family: CustomCSS3Font;
 }
 
