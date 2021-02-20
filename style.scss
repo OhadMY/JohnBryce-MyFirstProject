@@ -72,6 +72,10 @@ form {
     margin-right: 10px;
   }
 
+  button:hover {
+    box-shadow: 0 0 2px 2px rgba(25, 98, 179, 0.3);
+  }
+
   input,
   textarea {
     border: none;
