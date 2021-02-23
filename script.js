@@ -26,7 +26,7 @@ form.addEventListener("submit", function (e) {
   // Disable form refresh
   e.preventDefault();
 
-  //   Checks if inputs are empty or not
+  //   Checks if the text input is empty or contains blank content
   if (taskContent.value.trim()) {
     //   converting the inputs values into variables
     const tDate = taskDate.value;

@@ -4,9 +4,6 @@
     Arial, Helvetica, Geneva, sans-serif;
   color: white;
 }
-p {
-  margin: 0;
-}
 
 body {
   min-height: 100vh;
@@ -55,7 +52,7 @@ form {
   }
 
   #deadline {
-    width: 500px;
+    max-width: 500px;
     #date {
       margin-right: 40px;
     }
@@ -107,7 +104,6 @@ ul {
   border-radius: 20px;
   position: relative;
   background-color: rgb(28, 98, 179);
-  // background-color: rgba(255, 255, 255, 0.05);
   box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.17);
   width: 270px;
   height: 270px;
